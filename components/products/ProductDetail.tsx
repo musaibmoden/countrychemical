@@ -113,6 +113,31 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 ))}
               </div>
             </motion.section>
+
+            {/* Downloads Section */}
+            {product.brochureUrl && (
+              <motion.section
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                className="bg-industrial-accent text-white rounded-lg p-8 shadow-lg"
+              >
+                <h2 className="text-3xl font-bold mb-4">Product Resources</h2>
+                <p className="text-white/90 mb-6">
+                  Download our comprehensive product brochure for detailed information, technical specifications, and application guidelines.
+                </p>
+                <a
+                  href={product.brochureUrl}
+                  download
+                  className="inline-flex items-center bg-white text-industrial-accent px-8 py-4 rounded-lg font-semibold hover:bg-industrial-light transition-colors"
+                >
+                  <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Download Product Brochure (PDF)
+                </a>
+              </motion.section>
+            )}
           </div>
 
           {/* Sidebar */}
@@ -156,7 +181,35 @@ export default function ProductDetail({ product }: ProductDetailProps) {
               >
                 Request Quote
               </Link>
-              <button className="block w-full bg-white/10 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-white/20 transition-colors mt-3">
+              {product.brochureUrl ? (
+                <a
+                  href={product.brochureUrl}
+                  download
+                  className="block w-full bg-white/10 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-white/20 transition-colors mt-3 flex items-center justify-center"
+                >
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Download Brochure
+                </a>
+              ) : (
+                <button 
+                  onClick={() => alert('Brochure will be available soon. Please contact us for more information.')}
+                  className="block w-full bg-white/10 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-white/20 transition-colors mt-3 flex items-center justify-center opacity-75"
+                >
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Download Brochure
+                </button>
+              )}
+              <button 
+                onClick={() => alert('Datasheet will be available soon. Please contact us for technical specifications.')}
+                className="block w-full bg-white/10 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-white/20 transition-colors mt-3 flex items-center justify-center"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
                 Download Datasheet
               </button>
             </motion.div>

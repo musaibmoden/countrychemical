@@ -7,22 +7,18 @@ export default function TrustIndicators() {
     {
       title: 'ISO 9001 Certified',
       description: 'Quality management systems',
-      icon: '✓',
     },
     {
       title: 'ISO 14001 Certified',
       description: 'Environmental management',
-      icon: '🌱',
     },
     {
       title: 'ASTM Compliant',
       description: 'Meets international standards',
-      icon: '📋',
     },
     {
       title: 'Third-Party Tested',
       description: 'Independent quality verification',
-      icon: '🔬',
     },
   ]
 
@@ -54,8 +50,8 @@ export default function TrustIndicators() {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               className="text-center p-6 bg-industrial-light rounded-lg hover:shadow-lg transition-all duration-300"
             >
-              <div className="text-5xl mb-4 text-industrial-accent">
-                {indicator.icon}
+              <div className="w-16 h-16 bg-industrial-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-industrial-accent">✓</span>
               </div>
               <h3 className="text-xl font-bold text-industrial-dark mb-2">
                 {indicator.title}

@@ -58,7 +58,6 @@ export default function Stats() {
     { value: 25, suffix: '+', label: 'Years of Experience' },
     { value: 500, suffix: '+', label: 'Products in Portfolio' },
     { value: 10000, suffix: '+', label: 'Projects Served' },
-    { value: 50, suffix: '+', label: 'Countries Worldwide' },
   ]
 
   return (
@@ -79,7 +78,7 @@ export default function Stats() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {stats.map((stat, index) => (
             <StatItem
               key={index}

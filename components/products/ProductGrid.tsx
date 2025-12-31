@@ -46,9 +46,9 @@ export default function ProductGrid() {
           <div className="flex flex-wrap gap-4 justify-center">
             <button
               onClick={() => handleCategoryChange('all')}
-              className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+              className={`px-6 py-3 rounded-lg font-semibold transition-all focus-visible:outline-2 focus-visible:outline-industrial-accent focus-visible:outline-offset-2 ${
                 selectedCategory === 'all'
-                  ? 'bg-industrial-accent text-white'
+                  ? 'bg-industrial-accent text-white shadow-soft'
                   : 'bg-industrial-light text-industrial-grey hover:bg-industrial-concrete'
               }`}
               aria-pressed={selectedCategory === 'all'}
@@ -59,9 +59,9 @@ export default function ProductGrid() {
               <button
                 key={category.id}
                 onClick={() => handleCategoryChange(category.id)}
-                className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+                className={`px-6 py-3 rounded-lg font-semibold transition-all focus-visible:outline-2 focus-visible:outline-industrial-accent focus-visible:outline-offset-2 ${
                   selectedCategory === category.id
-                    ? 'bg-industrial-accent text-white'
+                    ? 'bg-industrial-accent text-white shadow-soft'
                     : 'bg-industrial-light text-industrial-grey hover:bg-industrial-concrete'
                 }`}
                 aria-pressed={selectedCategory === category.id}
@@ -81,8 +81,8 @@ export default function ProductGrid() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
             >
-              <Link href={`/products/${product.slug}`}>
-                <div className="bg-industrial-light rounded-lg overflow-hidden h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-industrial-accent group cursor-pointer">
+              <Link href={`/products/${product.slug}`} className="focus-visible:outline-2 focus-visible:outline-industrial-accent focus-visible:outline-offset-2 rounded-lg">
+                <div className="bg-industrial-light rounded-lg overflow-hidden h-full hover:shadow-strong transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-industrial-accent group cursor-pointer">
                   {product.imageUrl && (
                     <div className="relative w-full h-48 bg-industrial-concrete overflow-hidden">
                       <Image
@@ -119,8 +119,24 @@ export default function ProductGrid() {
                       ))}
                     </ul>
                   </div>
-                    <div className="text-industrial-accent font-semibold group-hover:translate-x-2 transition-transform inline-block">
-                      View Details →
+                    <div className="flex items-center justify-between mt-4">
+                      <div className="text-industrial-accent font-semibold group-hover:translate-x-2 transition-transform inline-block">
+                        View Details →
+                      </div>
+                      {product.brochureUrl && (
+                        <a
+                          href={product.brochureUrl}
+                          download
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-industrial-accent hover:text-primary-700 transition-colors flex items-center text-sm font-medium"
+                          title="Download Brochure"
+                        >
+                          <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          Brochure
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>

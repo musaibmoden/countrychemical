@@ -48,13 +48,13 @@ export default function ContactForm() {
       <h2 className="text-3xl font-bold text-industrial-dark mb-6">
         Send Us a Message
       </h2>
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-6" noValidate>
         <div>
           <label
             htmlFor="name"
             className="block text-sm font-semibold text-industrial-dark mb-2"
           >
-            Name *
+            Name <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -63,8 +63,10 @@ export default function ContactForm() {
             required
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-industrial-concrete rounded-lg focus:outline-none focus:ring-2 focus:ring-industrial-accent focus:border-transparent"
+            className="w-full px-4 py-3 border border-industrial-concrete rounded-lg focus:outline-none focus:ring-2 focus:ring-industrial-accent focus:border-transparent transition-colors"
             placeholder="Your full name"
+            aria-required="true"
+            aria-invalid={formData.name === '' ? 'false' : undefined}
           />
         </div>
 
@@ -73,7 +75,7 @@ export default function ContactForm() {
             htmlFor="email"
             className="block text-sm font-semibold text-industrial-dark mb-2"
           >
-            Email *
+            Email <span className="text-red-500">*</span>
           </label>
           <input
             type="email"
@@ -82,8 +84,10 @@ export default function ContactForm() {
             required
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-industrial-concrete rounded-lg focus:outline-none focus:ring-2 focus:ring-industrial-accent focus:border-transparent"
+            className="w-full px-4 py-3 border border-industrial-concrete rounded-lg focus:outline-none focus:ring-2 focus:ring-industrial-accent focus:border-transparent transition-colors"
             placeholder="your.email@example.com"
+            aria-required="true"
+            autoComplete="email"
           />
         </div>
 
@@ -100,8 +104,9 @@ export default function ContactForm() {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-industrial-concrete rounded-lg focus:outline-none focus:ring-2 focus:ring-industrial-accent focus:border-transparent"
+            className="w-full px-4 py-3 border border-industrial-concrete rounded-lg focus:outline-none focus:ring-2 focus:ring-industrial-accent focus:border-transparent transition-colors"
             placeholder="+1 (555) 123-4567"
+            autoComplete="tel"
           />
         </div>
 
@@ -110,7 +115,7 @@ export default function ContactForm() {
             htmlFor="message"
             className="block text-sm font-semibold text-industrial-dark mb-2"
           >
-            Message *
+            Message <span className="text-red-500">*</span>
           </label>
           <textarea
             id="message"
@@ -119,8 +124,9 @@ export default function ContactForm() {
             rows={6}
             value={formData.message}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-industrial-concrete rounded-lg focus:outline-none focus:ring-2 focus:ring-industrial-accent focus:border-transparent resize-none"
+            className="w-full px-4 py-3 border border-industrial-concrete rounded-lg focus:outline-none focus:ring-2 focus:ring-industrial-accent focus:border-transparent resize-none transition-colors"
             placeholder="Tell us about your project or inquiry..."
+            aria-required="true"
           />
         </div>
 
@@ -139,9 +145,20 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-industrial-accent text-white px-6 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-industrial-accent text-white px-6 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+          aria-disabled={isSubmitting}
         >
-          {isSubmitting ? 'Sending...' : 'Send Message'}
+          {isSubmitting ? (
+            <span className="flex items-center justify-center">
+              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Sending...
+            </span>
+          ) : (
+            'Send Message'
+          )}
         </button>
       </form>
     </motion.div>

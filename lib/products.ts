@@ -11,6 +11,7 @@ export interface Product {
   }
   applications: string[]
   imageUrl?: string
+  brochureUrl?: string
 }
 
 export const products: Product[] = [
@@ -41,6 +42,7 @@ export const products: Product[] = [
       'Pumped concrete',
     ],
     imageUrl: '/products/Capiseal Admix.PNG',
+    brochureUrl: '/brochures/superplasticizer-admixture.pdf',
   },
   {
     id: '2',
@@ -69,6 +71,7 @@ export const products: Product[] = [
       'Swimming pools',
     ],
     imageUrl: '/products/conseal 3C.PNG',
+    brochureUrl: '/brochures/crystalline-waterproofing.pdf',
   },
   {
     id: '3',
@@ -97,6 +100,7 @@ export const products: Product[] = [
       'Bridge deck repair',
     ],
     imageUrl: '/products/contar fx.PNG',
+    brochureUrl: '/brochures/concrete-repair-mortar.pdf',
   },
   {
     id: '4',

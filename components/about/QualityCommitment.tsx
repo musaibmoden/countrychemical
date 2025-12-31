@@ -7,22 +7,18 @@ export default function QualityCommitment() {
     {
       title: 'Quality Assurance',
       description: 'Rigorous testing protocols and quality control measures at every stage of production.',
-      icon: '🔍',
     },
     {
       title: 'Safety Standards',
       description: 'Compliance with international safety regulations and best practices.',
-      icon: '🛡️',
     },
     {
       title: 'Innovation',
       description: 'Continuous R&D investment to develop next-generation construction solutions.',
-      icon: '💡',
     },
     {
       title: 'Environmental Responsibility',
       description: 'Sustainable manufacturing processes and eco-friendly product formulations.',
-      icon: '🌍',
     },
   ]
 
@@ -54,7 +50,9 @@ export default function QualityCommitment() {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               className="bg-industrial-light rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300"
             >
-              <div className="text-5xl mb-4">{commitment.icon}</div>
+              <div className="w-16 h-16 bg-industrial-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <div className="w-8 h-8 border-2 border-industrial-accent rounded"></div>
+              </div>
               <h3 className="text-xl font-bold text-industrial-dark mb-3">
                 {commitment.title}
               </h3>

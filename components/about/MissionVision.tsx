@@ -14,7 +14,9 @@ export default function MissionVision() {
             transition={{ duration: 0.6 }}
             className="bg-white rounded-lg p-8 shadow-lg"
           >
-            <div className="text-5xl mb-4">🎯</div>
+            <div className="w-16 h-16 bg-industrial-accent/10 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-8 h-8 border-2 border-industrial-accent rounded-full"></div>
+            </div>
             <h2 className="text-3xl font-bold text-industrial-dark mb-4">
               Our Mission
             </h2>
@@ -30,7 +32,9 @@ export default function MissionVision() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="bg-white rounded-lg p-8 shadow-lg"
           >
-            <div className="text-5xl mb-4">👁️</div>
+            <div className="w-16 h-16 bg-industrial-accent/10 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-8 h-8 border-2 border-industrial-accent"></div>
+            </div>
             <h2 className="text-3xl font-bold text-industrial-dark mb-4">
               Our Vision
             </h2>

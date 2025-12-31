@@ -5,25 +5,21 @@ import { motion } from 'framer-motion'
 export default function ContactInfo() {
   const contactMethods = [
     {
-      icon: '📧',
       title: 'Email',
       content: 'info@countrychemical.com',
       link: 'mailto:info@countrychemical.com',
     },
     {
-      icon: '📞',
       title: 'Phone',
       content: '+1 (555) 123-4567',
       link: 'tel:+15551234567',
     },
     {
-      icon: '📍',
       title: 'Address',
       content: '123 Industrial Boulevard\nManufacturing District\nCity, State 12345\nUnited States',
       link: null,
     },
     {
-      icon: '🕒',
       title: 'Business Hours',
       content: 'Monday - Friday: 8:00 AM - 6:00 PM\nSaturday: 9:00 AM - 1:00 PM\nSunday: Closed',
       link: null,
@@ -54,7 +50,9 @@ export default function ContactInfo() {
               transition={{ delay: 0.3 + index * 0.1, duration: 0.6 }}
               className="flex items-start"
             >
-              <div className="text-3xl mr-4">{method.icon}</div>
+              <div className="w-10 h-10 bg-industrial-accent/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                <div className="w-5 h-5 border border-industrial-accent rounded"></div>
+              </div>
               <div>
                 <h3 className="font-semibold text-industrial-dark mb-1">
                   {method.title}
@@ -77,25 +75,32 @@ export default function ContactInfo() {
         </div>
       </motion.div>
 
-      {/* Map Placeholder */}
+      {/* Google Maps */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.6 }}
-        className="bg-industrial-light rounded-lg p-8 shadow-lg"
+        className="bg-white rounded-lg p-4 sm:p-8 shadow-lg"
       >
         <h3 className="text-xl font-bold text-industrial-dark mb-4">
           Find Us on the Map
         </h3>
-        <div className="bg-industrial-concrete rounded-lg h-64 flex items-center justify-center">
-          <div className="text-center text-industrial-grey">
-            <div className="text-4xl mb-2">📍</div>
-            <p className="text-sm">Google Maps integration placeholder</p>
-            <p className="text-xs mt-2">
-              Replace with actual Google Maps embed
-            </p>
-          </div>
+        <div className="rounded-lg overflow-hidden h-64 sm:h-96 w-full">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1841321915767!2d-73.98811768459398!3d40.74844097932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full h-full"
+            title="Country Chemical Location"
+          ></iframe>
         </div>
+        <p className="text-sm text-industrial-grey mt-4">
+          Visit us at our headquarters or contact us for directions.
+        </p>
       </motion.div>
     </div>
   )

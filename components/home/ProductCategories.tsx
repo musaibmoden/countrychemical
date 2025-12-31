@@ -5,12 +5,13 @@ import { motion } from 'framer-motion'
 import { categories } from '@/lib/products'
 
 export default function ProductCategories() {
+  // Professional icon placeholders - can be replaced with SVG icons if needed
   const categoryIcons = {
-    admixtures: '⚗️',
-    waterproofing: '💧',
-    repair: '🔧',
-    coatings: '🎨',
-    sealants: '🔒',
+    admixtures: null,
+    waterproofing: null,
+    repair: null,
+    coatings: null,
+    sealants: null,
   }
 
   return (
@@ -40,10 +41,10 @@ export default function ProductCategories() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
             >
-              <Link href={`/products?category=${category.id}`}>
-                <div className="bg-industrial-light rounded-lg p-8 h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-industrial-accent group cursor-pointer">
-                  <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {categoryIcons[category.id as keyof typeof categoryIcons] || '📦'}
+              <Link href={`/products?category=${category.id}`} className="focus-visible:outline-2 focus-visible:outline-industrial-accent focus-visible:outline-offset-2 rounded-lg">
+                <div className="bg-industrial-light rounded-lg p-8 h-full hover:shadow-strong transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-industrial-accent group cursor-pointer">
+                  <div className="w-16 h-16 bg-industrial-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-industrial-accent/20 transition-colors">
+                    <div className="w-8 h-8 border-2 border-industrial-accent rounded"></div>
                   </div>
                   <h3 className="text-2xl font-bold text-industrial-dark mb-2 group-hover:text-industrial-accent transition-colors">
                     {category.name}
@@ -67,7 +68,7 @@ export default function ProductCategories() {
         >
           <Link
             href="/products"
-            className="bg-industrial-accent text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-700 transition-all inline-block transform hover:scale-105"
+            className="bg-industrial-accent text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-700 transition-all inline-block transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 shadow-soft"
           >
             View All Products
           </Link>

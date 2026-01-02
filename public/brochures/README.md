@@ -21,3 +21,5 @@ Name your brochure files to match the product slugs:
 
 The download button will automatically appear on product pages when a brochure URL is provided.
 
+
+

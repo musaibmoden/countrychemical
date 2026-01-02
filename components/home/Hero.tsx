@@ -9,7 +9,7 @@ export default function Hero() {
       backgroundImage: 'url(/banner_hero.png)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      backgroundAttachment: 'fixed',
+      backgroundAttachment: 'scroll',
     }}>
       {/* Overlay for text readability */}
       <div className="absolute inset-0 bg-black/40 z-0" />

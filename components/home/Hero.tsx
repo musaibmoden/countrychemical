@@ -5,13 +5,15 @@ import { motion } from 'framer-motion'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-industrial-grey via-industrial-dark to-industrial-grey text-white overflow-hidden pt-20 pb-16 md:pt-0 md:pb-0" aria-label="Hero section">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center text-white overflow-hidden pt-20 pb-16 md:pt-0 md:pb-0" aria-label="Hero section" style={{
+      backgroundImage: 'url(/banner_hero.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed',
+    }}>
+      {/* Overlay for text readability */}
+      <div className="absolute inset-0 bg-black/40 z-0" />
+      {/* Background Pattern - removed */}
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
